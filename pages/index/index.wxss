@@ -1,0 +1,66 @@
+/* pages/index/index.wxss */
+@import '../../static/iconfont/iconfont.wxss';
+.index-page {
+  width: 100%;
+  height: 100%;
+}
+
+.page-swiper {
+  width: 100%;
+  height: auto;
+}
+
+.swiper-i {
+  width: 100%;
+  height: 100%;
+}
+.swiper-item-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}
+.swiper-item-inner image {
+  width: 100%;
+  height: 100%;
+}
+.all-btns {
+  width: 100%;
+  height: auto;
+}
+.btns-list {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.btn-item {
+  width: 100rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40rpx 0;
+}
+.btn-item-top {
+  width:100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.btn-item-bottom {
+  width: 100%;
+  text-align: center;
+  font-size: 24rpx;
+  color: #fff;
+}
+.btn-item-bottom text {
+  font-size: 24rpx;
+  color: #000000;
+}

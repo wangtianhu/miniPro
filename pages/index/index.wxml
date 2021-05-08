@@ -1,0 +1,29 @@
+<view class="index-page">
+  <!-- 顶部轮播图 -->
+  <view class="page-swiper">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay>
+      <block wx:for-items="{{swiperList}}" wx:key="bannerId">
+        <swiper-item class="swiper-i">
+          <view bindtap="clickSwiper" data-item="{{item}}" class="swiper-item-inner">
+            <image class="" src="{{item.pic}}" lazy-load="true"></image>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!-- 推荐按钮 -->
+  <view class="all-btns">
+    <view class="btns-list">
+      <block wx:for="{{btnList}}" wx:key="index">
+        <view class="btn-item">
+          <view class="btn-item-top">
+            <text class="icon iconfont {{item.icon}} btn-icon" style="color:#fff;font-size:60rpx"></text>
+          </view>
+          <view class="btn-item-bottom">
+            <text>{{item.name}}</text>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

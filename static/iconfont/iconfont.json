@@ -1,0 +1,44 @@
+{
+  "id": "2535150",
+  "name": "mini",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "17940584",
+      "name": "礼物",
+      "font_class": "liwu",
+      "unicode": "e6ae",
+      "unicode_decimal": 59054
+    },
+    {
+      "icon_id": "20114166",
+      "name": "分类",
+      "font_class": "fenlei",
+      "unicode": "e6fa",
+      "unicode_decimal": 59130
+    },
+    {
+      "icon_id": "20114355",
+      "name": "人",
+      "font_class": "ren",
+      "unicode": "e6fe",
+      "unicode_decimal": 59134
+    },
+    {
+      "icon_id": "20114948",
+      "name": "购物车",
+      "font_class": "gouwuche",
+      "unicode": "e707",
+      "unicode_decimal": 59143
+    },
+    {
+      "icon_id": "20120853",
+      "name": "主页",
+      "font_class": "zhuye",
+      "unicode": "e718",
+      "unicode_decimal": 59160
+    }
+  ]
+}
