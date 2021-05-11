@@ -45,7 +45,7 @@
   padding: 40rpx 0;
 }
 .btn-item-top {
-  width:100rpx;
+  width: 100rpx;
   height: 100rpx;
   border-radius: 50%;
   background: red;
@@ -63,4 +63,102 @@
 .btn-item-bottom text {
   font-size: 24rpx;
   color: #000000;
+}
+/* 推荐歌曲滚动区域 */
+.recommond-content {
+  width: 100%;
+  height: 280rpx;
+}
+.recommond-content .recommond-scroll {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  white-space: nowrap;
+}
+.recommond-content .recommond-item {
+  width: 200rpx;
+  height: 100%;
+  margin: 0 20rpx;
+  display: inline-block;
+}
+.recommond-content .recommond-item-img {
+  width: 100%;
+  height: 200rpx;
+  border-radius: 20rpx;
+  object-fit: cover;
+  object-position: center;
+}
+.recommond-content .recommond-item-text-wrapper {
+  line-height: 32rpx;
+  width: 100%;
+}
+.recommond-content .recommond-item-text {
+  width: 100%;
+  font-size: 26rpx;
+  color: #222222;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  white-space: normal !important;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+/* 排行榜轮播推荐 */
+.rank-content {
+  width: 100%;
+  height: 460rpx;
+}
+.rank-content-common {
+  width: 100%;
+  height: 100%;
+}
+.rank-content .rank-content-swiper {
+  width: 100%;
+  height: 100%;
+}
+.rank-content .rank-swiper-item {
+  width: 100%;
+  height: 100%;
+}
+.rank-content .rank-swiper-view {
+  width: 100%;
+  height: 100%;
+}
+.rank-content .rank-item-title {
+  width: 100%;
+  height: auto;
+  padding: 20rpx;
+}
+.rank-content .rank-item-title-text {
+  width: 100%;
+  height: auto;
+  text-align: left;
+  font-size: 28rpx;
+  color: #222222;
+}
+.rank-content .rank-item-content {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 20rpx;
+}
+.rank-content .rank-item-content-l {
+  width: 80rpx;
+  height: 80rpx;
+  object-fit: cover;
+  object-position: center;
+}
+.rank-content .rank-item-content-m {
+  font-size: 28rpx;
+  margin: 0 40rpx;
+  color: #222222;
+}
+.rank-content .rank-item-content-r {
+  flex: 1;
+  font-size: 28rpx;
+  color: #222222;
+  overflow: hidden;
 }

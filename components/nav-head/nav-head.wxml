@@ -1,0 +1,10 @@
+<!-- components/nav-head/nav-head.wxml -->
+<view class="nav-head">
+    <view class="title">
+        <text>{{text1}}</text>
+    </view>
+    <view class="nav">
+        <text class="nav-left">{{text2}}</text>
+        <view class="nav-right">查看更多</view>
+    </view>
+</view>

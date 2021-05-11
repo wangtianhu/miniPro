@@ -1,5 +1,5 @@
 // pages/index/index.js
-import { getIndexSwiper } from '../../request/index';
+import { getIndexSwiper, getRecommondList, getIndexRankList } from '../../request/index';
 Page({
   /**
    * 页面的初始数据
@@ -7,28 +7,29 @@ Page({
   data: {
     indicatorDots: true,
     swiperList: [],
-    btnList:[
+    btnList: [
       {
-        name:'每日推荐',
-        icon:'icon-liwu'
+        name: '每日推荐',
+        icon: 'icon-liwu'
       },
       {
-        name:'歌单',
-        icon:'icon-liwu'
+        name: '歌单',
+        icon: 'icon-liwu'
       },
       {
-        name:'排行榜',
-        icon:'icon-liwu'
+        name: '排行榜',
+        icon: 'icon-liwu'
       },
       {
-        name:'电台',
-        icon:'icon-liwu'
+        name: '电台',
+        icon: 'icon-liwu'
       },
       {
-        name:'直播',
-        icon:'icon-liwu'
+        name: '直播',
+        icon: 'icon-liwu'
       }
-    ]
+    ],
+    recommondList: []
   },
 
   /**
@@ -36,6 +37,8 @@ Page({
    */
   onLoad: function (options) {
     this.getSwiperData();
+    this.getRecommondData();
+    this.getRankData();
   },
   clickSwiper(e) {
     console.log(' 我是click', e);
@@ -53,6 +56,17 @@ Page({
     this.setData({
       swiperList: data.banners.slice(0, 4)
     });
+  },
+  async getRecommondData() {
+    let data = await getRecommondList();
+    console.log('推荐歌单内容---', data);
+    this.setData({
+      recommondList: data.result
+    });
+  },
+  async getRankData() {
+    let data = await Promise.all([getIndexRankList({ id: 1 }), getIndexRankList({ id: 2 })]);
+    console.log('排行榜内容---', data);
   },
   /**
    * 生命周期函数--监听页面显示

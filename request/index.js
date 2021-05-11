@@ -11,7 +11,7 @@ const request = (url, methods = 'GET', data) => {
         resolve(res.data);
       },
       fail(er) {
-        console.log(res.data);
+        console.log(er);
         reject(er);
       }
     });
@@ -20,4 +20,12 @@ const request = (url, methods = 'GET', data) => {
 
 export function getIndexSwiper() {
   return request(API.indexSwiper, 'GET', { type: 1 });
+}
+
+export function getRecommondList() {
+  return request(API.indexRecommond, 'GET', { limit: 10 });
+}
+
+export function getIndexRankList(params) {
+  return request(API.indexRank, 'GET', params);
 }

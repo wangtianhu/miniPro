@@ -1,0 +1,36 @@
+/* components/nav-head/nav-head.wxss */
+.nav-head {
+  width: 100%;
+  padding: 20rpx;
+  height: auto;
+  box-sizing: border-box;
+}
+.nav-head .title {
+  width: 100%;
+}
+.nav-head .title {
+  width: 100%;
+  text-align: left;
+  font-size: 32rpx;
+  color: #222222;
+}
+.nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav .nav-left {
+  font-size: 32rpx;
+  color: #222222;
+}
+.nav .nav-right {
+  padding: 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 32rpx;
+  font-size: 24rpx;
+  color: #222222;
+  border: 2rpx solid #222222;
+}

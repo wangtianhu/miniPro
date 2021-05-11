@@ -26,4 +26,48 @@
       </block>
     </view>
   </view>
+  <!-- 推荐导航标1 -->
+  <nav-head text1="推荐歌曲" text2="为您精心推荐"></nav-head>
+  <!-- 推荐歌曲滚动区域 -->
+  <view class="recommond-content">
+    <scroll-view class="recommond-scroll" enable-flex="true" scroll-x="true" scroll-y="false" upper-threshold="50" lower-threshold="50" scroll-top="0" scroll-left="0" scroll-into-view="" scroll-with-animation="false" enable-back-to-top="false">
+      <block wx:for="{{recommondList}}" wx:key="id">
+        <view class="recommond-item">
+          <image class="recommond-item-img" src="{{item.picUrl}}" lazy-load="true"></image>
+          <view class="recommond-item-text-wrapper">
+            <text class="recommond-item-text">{{item.name}}</text>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+  <!-- 推荐导航标2 -->
+  <nav-head text1="排行榜" text2="热歌风向标"></nav-head>
+  <!-- 排行榜轮播推荐 -->
+  <view class="rank-content">
+    <swiper class="rank-content-swiper" next-margin="60rpx">
+      <swiper-item class="rank-swiper-item">
+        <view bindtap="clickSwiper" class="rank-swiper-view">
+          <view class="rank-item-title">
+            <text class="rank-item-title-text">云音乐排行榜>></text>
+          </view>
+          <view class="rank-item-content">
+            <image class="rank-item-content-l" src="/static/images/recommond-pic.png"></image>
+            <text class="rank-item-content-m">1</text>
+            <text class="rank-item-content-r">我一个人跳舞吃饭走走停停</text>
+          </view>
+          <view class="rank-item-content">
+            <image class="rank-item-content-l" src="/static/images/recommond-pic.png"></image>
+            <text class="rank-item-content-m">1</text>
+            <text class="rank-item-content-r">我一个人跳舞吃饭走走停停</text>
+          </view>
+          <view class="rank-item-content">
+            <image class="rank-item-content-l" src="/static/images/recommond-pic.png"></image>
+            <text class="rank-item-content-m">1</text>
+            <text class="rank-item-content-r">我一个人跳舞吃饭走走停停</text>
+          </view>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
 </view>
