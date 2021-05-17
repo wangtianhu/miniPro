@@ -43,7 +43,7 @@ Page({
   clickSwiper(e) {
     console.log(' 我是click', e);
     wx.navigateTo({
-      url: '/pages/test/test'
+      url: '/pages/personerCenter/personerCenter'
     });
   },
   /**
