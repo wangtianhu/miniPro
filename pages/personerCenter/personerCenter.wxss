@@ -1,1 +1,184 @@
 /* pages/personerCenter/personerCenter.wxss */
+@import '../../static/iconfont/commonIconFont.wxss';
+.personer-page {
+  width: 100%;
+  height: 100%;
+}
+.personer-info {
+  width: 100%;
+  height: 600rpx;
+  position: relative;
+}
+.personer-info .personer-info-bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  object-fit: cover;
+}
+.personer-info .personer-detail {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  padding: 0 40rpx;
+  padding-top: 150rpx;
+  padding-bottom: 20rpx;
+  height: auto;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+.personer-info .personer-member {
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+  padding: 0 20px;
+  height: 300rpx;
+}
+.personer-info .personer-member .member-info {
+  width: 100%;
+  height: 100%;
+  border-radius: 40rpx;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 20rpx;
+}
+.personer-info .member-info-top {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.personer-info .member-info-top-title {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+.personer-info .member-info-top-title-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+}
+.personer-info .member-info-top-title-text {
+  font-size: 24rpx;
+  color: yellow;
+  display: inline-block;
+}
+.personer-info .member-info-top-btn {
+  width: auto;
+  height: auto;
+  padding: 5rpx 10rpx;
+  border-radius: 20rpx;
+  background: yellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24rpx;
+  color: #222222;
+}
+.personer-info .member-info-mid {
+  margin-top: 80rpx;
+}
+.personer-info .member-type {
+  font-size: 30rpx;
+  color: yellow;
+}
+.personer-info .member-type-dec {
+  margin-top: 20rpx;
+  font-size: 30rpx;
+  color: yellow;
+}
+.personer-info .personer-detail .personer-detail-avantor {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  border: 4rpx solid #fff;
+  margin-right: 30rpx;
+}
+.personer-info .personer-detail .personer-detail-name {
+  font-size: 26rpx;
+  color: #222222;
+}
+
+.personer-generral-info {
+  width: 100%;
+  height: auto;
+  position: relative;
+  margin-top: -80rpx;
+  padding-top: 30rpx;
+  box-sizing: border-box;
+}
+.generral-wrapper {
+  width: 100%;
+  height: auto;
+  background: #f8f8f8;
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+.personer-generral-info .generral-info-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 35rpx;
+}
+.generral-bar-wrapper {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20rpx;
+  height: auto;
+  border-radius: 10rpx;
+  background: #fff;
+}
+.generral-bar-wrapper .generral-bar-list {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.generral-bar-wrapper .generral-bar-item {
+  height: 70rpx;
+  width: 100rpx;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 20rpx;
+}
+.generral-bar-item .iconfont {
+  color: #ff0000;
+}
+.generral-rencent-plays {
+  width: 100%;
+  height: auto;
+  padding: 20rpx;
+  background: #fff;
+}
+.generral-rencent-plays .rencent-plays-title {
+  font-size: 24rpx;
+  color: #222222;
+  width: 100%;
+  text-align: left;
+}
+.rencent-plays-scoll {
+  width: 100%;
+  display: flex;
+  height: 140rpx;
+  flex-wrap: nowrap;
+}
+.rencent-plays-scoll .play-item {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+  margin-right: 30rpx;
+  display: inline-block;
+}
+.play-item .play-item-img {
+  width: 100%;
+  height: 100%;
+}
