@@ -4,9 +4,9 @@
     <view class="personer-info">
         <image class="personer-info-bg" src="/static/images/personal/bgImg2.jpg" lazy-load="false" binderror="" bindload=""></image>
         <view class="personer-detail">
-            <image class="personer-detail-avantor" src="{{userInfo.avantor?userInfo.avantor:'/static/images/recommond-pic.png'}}" lazy-load="false" binderror="" bindload=""></image>
+            <image class="personer-detail-avantor" src="{{userInfo.avatarUrl?userInfo.avatarUrl:'/static/images/recommond-pic.png'}}" lazy-load="false" binderror="" bindload=""></image>
             <text class="personer-detail-name" selectable="false" space="false" decode="false">
-                {{userInfo.nickname ? userInfo.nickname:'游客'}}
+                {{userInfo.nickname ? userInfo.nickname:'登录'}}
             </text>
         </view>
         <view class="personer-member">
@@ -32,7 +32,7 @@
         </view>
     </view>
     <!-- 个人其他信息 -->
-    <view class="personer-generral-info">
+    <view class="personer-generral-info" style="transform:translateY({{translateY}});transition:{{transition}}" bindtouchstart="handleTouchStart" bindtouchmove="handleTouchMove"  bindtouchend="handleTouchEnd">
         <image class="generral-info-bg" src="/static/images/personal/arc.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
         <!-- 个人bar -->
         <view class="generral-wrapper">
@@ -61,26 +61,21 @@
                 <text class="rencent-plays-title" selectable="false" space="false" decode="false">
                     最近播放
                 </text>
-                <scroll-view class="rencent-plays-scoll" enable-flex="true" scroll-x="true" scroll-y="true">
-                    <view class="play-item">
-                        <image class="play-item-img" src="/static/images/recommond-pic.png" lazy-load="false" binderror="" bindload=""></image>
-                    </view>
-                    <view class="play-item">
-                        <image class="play-item-img" src="/static/images/recommond-pic.png" lazy-load="false" binderror="" bindload=""></image>
-                    </view>
-                    <view class="play-item">
-                        <image class="play-item-img" src="/static/images/recommond-pic.png" lazy-load="false" binderror="" bindload=""></image>
-                    </view>
-                    <view class="play-item">
-                        <image class="play-item-img" src="/static/images/recommond-pic.png" lazy-load="false" binderror="" bindload=""></image>
-                    </view>
-                    <view class="play-item">
-                        <image class="play-item-img" src="/static/images/recommond-pic.png" lazy-load="false" binderror="" bindload=""></image>
-                    </view>
-                    <view class="play-item">
-                        <image class="play-item-img" src="/static/images/recommond-pic.png" lazy-load="false" binderror="" bindload=""></image>
-                    </view>
+                <scroll-view class="rencent-plays-scoll" enable-flex="true" scroll-x="true" scroll-y="false">
+                    <block wx:for="{{recentPlayList}}" wx:key="id">
+                        <view class="play-item">
+                            <image class="play-item-img" src="{{item.picUrl}}" lazy-load="false" binderror="" bindload=""></image>
+                        </view>
+                    </block>
                 </scroll-view>
+                <view class="other-info-item">
+                    <text class="item-l" selectable="false" space="false" decode="false">我的收藏</text>
+                    <text class="item-r" selectable="false" space="false" decode="false">>></text>
+                </view>
+                <view class="other-info-item">
+                    <text class="item-l" selectable="false" space="false" decode="false">我的音乐</text>
+                    <text class="item-r" selectable="false" space="false" decode="false">>></text>
+                </view>
             </view>
         </view>
     </view>

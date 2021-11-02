@@ -1,11 +1,13 @@
 // pages/login/login.js
+import { getLoginRequest } from '../../request/index';
 Page({
   /**
    * 页面的初始数据
    */
   data: {
     phone: '',
-    password: ''
+    password: '',
+    isBtnLoding: false
   },
 
   /**
@@ -28,7 +30,8 @@ Page({
       [type]: e.detail.value.trim()
     });
   },
-  clickLogin() {
+  async clickLogin() {
+    if (this.data.isBtnLoding) return;
     let { phone, password } = this.data;
     if (!phone) {
       wx.showToast({
@@ -53,6 +56,54 @@ Page({
       });
       return;
     }
+    this.setData({
+      isBtnLoding: true
+    });
+    let params = { phone, password, isLogin: true };
+    let loginData;
+    try {
+      loginData = await getLoginRequest(params);
+    } catch (er) {
+      wx.showToast({
+        title: '网络错误~',
+        icon: 'none'
+      });
+      this.setData({
+        isBtnLoding: false
+      });
+    }
+    console.log('loginData---', loginData);
+    if (parseInt(loginData.data.code) !== 200) {
+      let title = loginData.data.message;
+      this.setData({
+        isBtnLoding: false
+      });
+      return wx.showToast({
+        title,
+        icon: 'none'
+      });
+    }
+
+    // 将用户的信息存储至本地
+    wx.setStorageSync('userInfo', JSON.stringify(loginData.data.profile));
+    wx.setStorageSync('userId', loginData.data.profile.userId);
+    wx.setStorageSync('cookie', JSON.stringify(loginData.cookies));
+    this.setData({
+      isBtnLoding: false,
+      phone: '',
+      password: ''
+    });
+    wx.switchTab({
+      url: '/pages/index/index',
+      success: (result) => {
+        wx.showToast({
+          title: '登录成功~',
+          icon: 'none'
+        });
+      },
+      fail: () => {},
+      complete: () => {}
+    });
   },
   /**
    * 生命周期函数--监听页面隐藏
