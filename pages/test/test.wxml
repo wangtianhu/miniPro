@@ -1,0 +1,12 @@
+<!-- pages/test.wxml -->
+<view>
+    <view bindtap="handleShow">
+        点击我
+        <button open-type="getUserInfo" bindgetuserinfo="handleInfo">我 是按钮</button>
+    </view>
+    <view>
+        <button bindtap="handleGoIndex">跳转首页</button>
+        <text>用户信息</text>
+        <view>{{userInfo.nickName}}</view>
+    </view>
+</view>

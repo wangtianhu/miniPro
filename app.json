@@ -1,8 +1,9 @@
 {
   "pages": [
-    "pages/personerCenter/personerCenter",
     "pages/login/login",
-    "pages/index/index"
+    "pages/test/test",
+    "pages/index/index",
+    "pages/personerCenter/personerCenter"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -13,7 +14,8 @@
   "tabBar": {
     "selectedColor": "#ff0000",
     "position": "bottom",
-    "list": [{
+    "list": [
+      {
         "pagePath": "pages/index/index",
         "iconPath": "static/tabs/tab-home.png",
         "selectedIconPath": "static/tabs/tab-home-current.png",

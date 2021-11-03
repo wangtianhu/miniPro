@@ -2,10 +2,10 @@
   <!-- 顶部轮播图 -->
   <view class="page-swiper">
     <swiper indicator-dots="{{indicatorDots}}" autoplay>
-      <block wx:for-items="{{swiperList}}" wx:key="bannerId">
+      <block wx:for-items="{{swiperList}}" wx:key="targetId">
         <swiper-item class="swiper-i">
           <view bindtap="clickSwiper" data-item="{{item}}" class="swiper-item-inner">
-            <image class="" src="{{item.pic}}" lazy-load="true"></image>
+            <image class="" src="{{item.imageUrl}}" lazy-load="true"></image>
           </view>
         </swiper-item>
       </block>
@@ -46,28 +46,22 @@
   <!-- 排行榜轮播推荐 -->
   <view class="rank-content">
     <swiper class="rank-content-swiper" next-margin="60rpx">
-      <swiper-item class="rank-swiper-item">
-        <view bindtap="clickSwiper" class="rank-swiper-view">
-          <view class="rank-item-title">
-            <text class="rank-item-title-text">云音乐排行榜>></text>
+      <block wx:for="{{rankList}}" wx:key="name" wx:for-item="rankSum">
+        <swiper-item class="rank-swiper-item">
+          <view bindtap="clickSwiper" class="rank-swiper-view">
+            <view class="rank-item-title">
+              <text class="rank-item-title-text">{{rankSum.name}}>></text>
+            </view>
+            <block wx:for="{{rankSum.tracks}}" wx:for-item="rankItem" wx:key="id">
+              <view class="rank-item-content">
+                <image class="rank-item-content-l" src="{{rankItem.al.picUrl}}" lazy-load="true"></image>
+                <text class="rank-item-content-m">{{index+1}}</text>
+                <text class="rank-item-content-r">{{rankItem.al.name}}</text>
+              </view>
+            </block>
           </view>
-          <view class="rank-item-content">
-            <image class="rank-item-content-l" src="/static/images/recommond-pic.png"></image>
-            <text class="rank-item-content-m">1</text>
-            <text class="rank-item-content-r">我一个人跳舞吃饭走走停停</text>
-          </view>
-          <view class="rank-item-content">
-            <image class="rank-item-content-l" src="/static/images/recommond-pic.png"></image>
-            <text class="rank-item-content-m">1</text>
-            <text class="rank-item-content-r">我一个人跳舞吃饭走走停停</text>
-          </view>
-          <view class="rank-item-content">
-            <image class="rank-item-content-l" src="/static/images/recommond-pic.png"></image>
-            <text class="rank-item-content-m">1</text>
-            <text class="rank-item-content-r">我一个人跳舞吃饭走走停停</text>
-          </view>
-        </view>
-      </swiper-item>
+        </swiper-item>
+      </block>
     </swiper>
   </view>
 </view>

@@ -6,13 +6,15 @@
  * @Description: In User Settings Edit
  * @FilePath: \miniIterm\request\index.js
  */
-import API from './api';
+import API from "./api";
+import { banner, personnal, rank } from "./data";
 let cookie = {
-  cookie: wx.getStorageSync('cookie')
-    ? JSON.parse(wx.getStorageSync('cookie')).find((item) => item.includes('MUSIC_U'))
-    : ''
+  cookie: wx.getStorageSync("cookie")
+    ? JSON.parse(wx.getStorageSync("cookie")).find(item => item.includes("MUSIC_U"))
+    : ""
 };
-const request = (url, methods = 'GET', data) => {
+let isMock = true;
+const request = (url, methods = "GET", data) => {
   return new Promise((resolve, reject) => {
     wx.request({
       url,
@@ -37,7 +39,10 @@ const request = (url, methods = 'GET', data) => {
 };
 
 export function getIndexSwiper() {
-  return request(API.indexSwiper, 'GET', { type: 1 });
+  if (isMock) {
+    return banner;
+  }
+  return request(API.indexSwiper, "GET", { type: 1 });
 }
 
 /**
@@ -45,11 +50,22 @@ export function getIndexSwiper() {
  * @return {Object}
  */
 export function getRecommondList() {
-  return request(API.indexRecommond, 'GET', { limit: 10 });
+  if (isMock) {
+    return personnal;
+  }
+  return request(API.indexRecommond, "GET", { limit: 10 });
 }
 
-export function getIndexRankList(params) {
-  return request(API.indexRank, 'GET', params);
+/**
+ * @description: 获取排行榜
+ * @param {Number} idx
+ * @return {Object}
+ */
+export function getIndexRankList(idx = 10) {
+  if (isMock) {
+    return rank;
+  }
+  return request(API.indexRank, "GET", { idx });
 }
 
 /**
@@ -63,7 +79,7 @@ export function getIndexRankList(params) {
  * @return {Object}
  */
 export function getLoginRequest(params) {
-  return request(API.login, 'GET', params);
+  return request(API.login, "GET", params);
 }
 
 /**
@@ -76,5 +92,5 @@ export function getLoginRequest(params) {
  * @return {*}
  */
 export function getuserRecordRequest(params) {
-  return request(API.userRecord, 'POST', params);
+  return request(API.userRecord, "POST", params);
 }

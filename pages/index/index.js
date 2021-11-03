@@ -1,5 +1,5 @@
 // pages/index/index.js
-import { getIndexSwiper, getRecommondList, getIndexRankList } from '../../request/index';
+import { getIndexSwiper, getRecommondList, getIndexRankList } from "../../request/index";
 Page({
   /**
    * 页面的初始数据
@@ -9,27 +9,28 @@ Page({
     swiperList: [],
     btnList: [
       {
-        name: '每日推荐',
-        icon: 'icon-liwu'
+        name: "每日推荐",
+        icon: "icon-liwu"
       },
       {
-        name: '歌单',
-        icon: 'icon-liwu'
+        name: "歌单",
+        icon: "icon-liwu"
       },
       {
-        name: '排行榜',
-        icon: 'icon-liwu'
+        name: "排行榜",
+        icon: "icon-liwu"
       },
       {
-        name: '电台',
-        icon: 'icon-liwu'
+        name: "电台",
+        icon: "icon-liwu"
       },
       {
-        name: '直播',
-        icon: 'icon-liwu'
+        name: "直播",
+        icon: "icon-liwu"
       }
     ],
-    recommondList: []
+    recommondList: [],
+    rankList: []
   },
 
   /**
@@ -41,9 +42,9 @@ Page({
     this.getRankData();
   },
   clickSwiper(e) {
-    console.log(' 我是click', e);
+    console.log(" 我是click", e);
     wx.navigateTo({
-      url: '/pages/personerCenter/personerCenter'
+      url: "/pages/personerCenter/personerCenter"
     });
   },
   /**
@@ -52,21 +53,31 @@ Page({
   onReady: function () {},
   async getSwiperData() {
     let data = await getIndexSwiper();
-    console.log('轮播图内容---', data);
+    console.log("轮播图内容---", data);
     this.setData({
       swiperList: data.banners.slice(0, 4)
     });
   },
   async getRecommondData() {
     let data = await getRecommondList();
-    console.log('推荐歌单内容---', data);
+    console.log("推荐歌单内容---", data);
     this.setData({
       recommondList: data.result
     });
   },
   async getRankData() {
-    let data = await Promise.all([getIndexRankList({ id: 1 }), getIndexRankList({ id: 2 })]);
-    console.log('排行榜内容---', data);
+    let data = await Promise.all([getIndexRankList(0), getIndexRankList(1), getIndexRankList(2)]);
+    console.log(JSON.stringify(data[0]));
+    let rankList = data.map(el => {
+      let {
+        playlist: { name, tracks }
+      } = el;
+      return { name, tracks: tracks.slice(0, 3) };
+    });
+    this.setData({
+      rankList
+    });
+    console.log("排行榜内容---", data);
   },
   /**
    * 生命周期函数--监听页面显示
